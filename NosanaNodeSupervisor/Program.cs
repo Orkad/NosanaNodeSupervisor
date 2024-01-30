@@ -1,3 +1,4 @@
+using Docker.DotNet;
 using NosanaNodeSupervisor;
 using Serilog;
 
@@ -10,6 +11,8 @@ builder.Services.AddSerilog();
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog();
 builder.Services.AddHostedService<Worker>();
+builder.Services.AddSingleton<DockerClientConfiguration>();
+builder.Services.AddSingleton<INosanaNode, DockerNosanaNode>();
 
 var host = builder.Build();
 host.Run();
