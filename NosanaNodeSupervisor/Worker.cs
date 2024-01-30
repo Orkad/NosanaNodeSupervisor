@@ -21,6 +21,7 @@ namespace NosanaNodeSupervisor
                     }
                     if (log == "Flow has expired")
                     {
+                        _logger.LogWarning("Expired flow detected");
                         await nosanaNode.RestartAsync(cancellationToken);
                     }
                 }
