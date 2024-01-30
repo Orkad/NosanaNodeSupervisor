@@ -34,7 +34,7 @@ namespace NosanaNodeSupervisor
                         _logger.LogInformation("Node is working on: " + log);
                         lastLog = log;
                     }
-                    if (log == "flow has expired")
+                    if (log == "Flow has expired")
                     {
                         await RestartNodeAsync(client, cancellationToken);
                     }
